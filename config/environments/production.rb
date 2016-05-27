@@ -78,4 +78,24 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.force_ssl = true
+
+config.action_mailer.smtp_settings = {
+# Gmail Account
+:tls => true,
+:address => "smtp.googlemail.com",
+:port => "587",
+:domain => "radiant-garden-48128.herokuapp.com",
+:authentication => :plain,
+:user_name => "pagstarter@gmail.com",
+:password => "paulleonyuk"
+}
+
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.perform_deliveries = true
+config.action_mailer.raise_delivery_errors = false
+config.action_mailer.default_url_options = { :host => "radiant-garden-48128.herokuapp.com" }
+
+
+
 end
