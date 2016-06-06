@@ -13,15 +13,11 @@ class UsersController < ApplicationController
     redirect_to root_url and return unless @user.activated?
   end
 
-
-
   def new
     @user = User.new
   end
 
-  
-
- def create
+  def create
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
@@ -30,13 +26,11 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-end
-
+  end
 
   def edit
     @user = User.find(params[:id])
   end
-
 
   def update
     @user = User.find(params[:id])
@@ -48,16 +42,11 @@ end
     end
   end
   
-
-
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
   end
-
-
-
 
   private
 
@@ -66,10 +55,8 @@ end
                                    :password_confirmation)
     end
 
-     # Before filters
-
+    # Before filters
     # Confirms a logged-in user.
-    
     def logged_in_user
       unless logged_in?
         store_location
@@ -77,7 +64,6 @@ end
         redirect_to login_url
       end
     end
-
 
      # Confirms the correct user.
     def correct_user

@@ -35,7 +35,6 @@ class PasswordResetsController < ApplicationController
     end
   end
 
-
    private
 
     def user_params
@@ -43,7 +42,6 @@ class PasswordResetsController < ApplicationController
     end
 
     # Before filters
-
     def get_user
       @user = User.find_by(email: params[:email])
     end

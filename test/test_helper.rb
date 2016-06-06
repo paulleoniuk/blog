@@ -12,14 +12,13 @@ class ActiveSupport::TestCase
   
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical
   # order.
-    fixtures :all
+  fixtures :all
 
   # Add more helper methods to be used by all tests here...
 
   def is_logged_in?
     !session[:user_id].nil?
   end
-
 
   def log_in_as(user, options = {})
     password    = options[:password]    || 'password'
@@ -39,4 +38,5 @@ class ActiveSupport::TestCase
     def integration_test?
       defined?(post_via_redirect)
     end
+    
 end
