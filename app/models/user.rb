@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   before_save   :downcase_email
   before_create :create_activation_digest
 	validates :name, presence: true, length: {maximum: 50}
+  has_many :microposts, dependent: :destroy
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   	validates :email, presence: true, length: { maximum: 255 },
@@ -64,6 +65,10 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
 
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+  
   private
   
     # Converts email to all lower-case.
