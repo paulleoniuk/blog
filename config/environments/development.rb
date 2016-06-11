@@ -46,7 +46,7 @@ config.action_mailer.smtp_settings = {
 # Gmail Account
 :tls => true,
 :address => "smtp.googlemail.com",
-:port => "587",
+:port => "465",
 :domain => "gmail.com",
 :authentication => :plain,
 :user_name => "pagstarter@gmail.com",
